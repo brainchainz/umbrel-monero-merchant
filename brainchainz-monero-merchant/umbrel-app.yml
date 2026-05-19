@@ -1,7 +1,7 @@
 manifestVersion: 1
-id: monero-merchant
+id: brainchainz-monero-merchant
 category: finance
-name: Monero Merchant
+name: brainchainz Monero Merchant
 version: "2.0.0-umbrel7"
 tagline: Accept Monero payments with a self-hosted POS backend
 description: >-
