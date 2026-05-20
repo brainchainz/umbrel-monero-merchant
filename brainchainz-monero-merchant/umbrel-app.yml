@@ -25,7 +25,7 @@ support: https://matrix.to/#/%23monero-merchant:matrix.org
 dependencies:
   - monero
 port: 8080
-icon: https://raw.githubusercontent.com/brainchainz/umbrel-monero-merchant/main/monero-merchant/icon.png
+icon: https://raw.githubusercontent.com/brainchainz/umbrel-monero-merchant/main/brainchainz-monero-merchant/icon.png
 gallery:
   - 1.jpg
   - 2.jpg
