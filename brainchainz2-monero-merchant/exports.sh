@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-APP_DIR="${APP_DATA_DIR}"
+APP_DIR="${APP_DATA_DIR:-/home/umbrel/umbrel/app-data/brainchainz2-monero-merchant}"
 mkdir -p "${APP_DIR}/postgres" "${APP_DIR}/wallet"
 
 # ── Auto-detect Umbrel Monero node credentials ──────────────────────────────
