@@ -2,7 +2,7 @@ manifestVersion: 1
 id: brainchainz2-monero-merchant
 category: finance
 name: Monero Merchant
-version: "2.1.0-umbrel3"
+version: "2.1.0-umbrel4"
 tagline: Accept Monero payments with a self-hosted POS backend
 description: >-
   Monero Merchant is a free, open-source point-of-sale backend for accepting
@@ -34,9 +34,7 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  v2.1.0-umbrel3: Full admin dashboard with sidebar navigation — Dashboard,
-  Vendors, Transactions, POS Devices, and Invites. New backend endpoints:
-  /admin/transactions, /admin/pos-devices, /admin/invites. Aurora dark theme. No emoji in UI.
+  v2.1.0-umbrel4: Fixed admin password fallback when user config is blank. Full admin dashboard with sidebar navigation. New backend endpoints: /admin/transactions, /admin/pos-devices, /admin/invites. Aurora dark theme. No emoji in UI.
 torOnly: false
 
 submitter: brainchainz
