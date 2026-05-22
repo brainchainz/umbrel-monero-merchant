@@ -2,7 +2,7 @@ manifestVersion: 1
 id: brainchainz2-monero-merchant
 category: finance
 name: Monero Merchant
-version: "2.1.0-umbrel6"
+version: "2.1.0-umbrel7"
 tagline: Accept Monero payments with a self-hosted POS backend
 description: >-
   Monero Merchant is a free, open-source point-of-sale backend for accepting
@@ -34,7 +34,7 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  v2.1.0-umbrel6: Fixed JS syntax error in dashboard (corrupted timestamp). First boot auto-login (no password required). Set password via Settings. Aurora dark theme.
+  v2.1.0-umbrel7: Updated login placeholder text. Fixed JS syntax error. First boot auto-login (no password required). Set password via Settings.
 torOnly: false
 submitter: brainchainz
 submission: https://github.com/Monero-Merchant/monero-merchant/pulls
