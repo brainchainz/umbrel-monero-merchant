@@ -34,7 +34,7 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  v2.1.0-umbrel4: Fixed admin password fallback when user config is blank. Full admin dashboard with sidebar navigation. New backend endpoints: /admin/transactions, /admin/pos-devices, /admin/invites. Aurora dark theme. No emoji in UI.
+  v2.1.0-umbrel4: Added Change Password in Settings sidebar. Fixed admin password fallback. Full admin dashboard with sidebar navigation (Dashboard, Vendors, Transactions, POS Devices, Invites, Settings). New backend endpoints: /admin/transactions, /admin/pos-devices, /admin/invites. Aurora dark theme. No emoji in UI.
 torOnly: false
 
 submitter: brainchainz
