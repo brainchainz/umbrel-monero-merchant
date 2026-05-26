@@ -34,7 +34,7 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  v2.1.0-umbrel11: Dashboard mounted via volume for live updates. Fixed JS syntax error. Auto-login. Logo in nav. No login screen.
+  v2.1.0-umbrel11: Fixed dashboard JS syntax error. Auto-login with configurable admin password. Logo in nav.
 torOnly: false
 submitter: brainchainz
 submission: https://github.com/Monero-Merchant/monero-merchant/pulls
