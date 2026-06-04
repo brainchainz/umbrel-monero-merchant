@@ -34,7 +34,9 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  v2.1.0-umbrel13: Rebuilt dashboard with verified clean JS (no redaction corruption). Auto-login with configurable admin password. Logo in nav.
+  v2.1.0-umbrel20: Fixed login by removing inline event handlers (CSP compliance).
+  Added debug panel for diagnostics. Backend now reloads .env from APP_DATA_DIR
+  for password persistence across restarts.
 torOnly: false
 submitter: brainchainz
 submission: https://github.com/Monero-Merchant/monero-merchant/pulls
