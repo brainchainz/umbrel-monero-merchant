@@ -2,7 +2,7 @@
 set -eo pipefail
 
 APP_DIR="${APP_DATA_DIR:-/home/umbrel/umbrel/app-data/brainchainz2-monero-merchant}"
-mkdir -p "${APP_DIR}/postgres" "${APP_DIR}/wallet"
+mkdir -p "${APP_DIR}/postgres" "${APP_DIR}/wallet" "${APP_DIR}/moneropay"
 
 # ── Auto-detect Umbrel Monero node credentials ──────────────────────────────
 UMBREL_MONERO_ENV="/home/umbrel/umbrel/app-data/monero/.env"
@@ -33,7 +33,7 @@ WALLET_USER="${APP_MONERO_WALLET_RPC_USERNAME:-}"
 WALLET_PASS="${APP_MONERO_WALLET_RPC_PASSWORD:-}"
 
 # MoneroPay
-MP_URL="${APP_MONEROPAY_BASE_URL:-http://host.docker.internal:5000}"
+MP_URL="${APP_MONEROPAY_BASE_URL:-http://moneropay:8080}"
 MP_CALLBACK="${APP_MONEROPAY_CALLBACK_URL:-http://brainchainz2-monero-merchant_backend_1:8080/callback/}"
 
 # Admin password (blank = no password on first boot; set via Settings or APP_ADMIN_PASSWORD)
