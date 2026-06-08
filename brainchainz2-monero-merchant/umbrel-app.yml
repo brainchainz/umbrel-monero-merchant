@@ -2,7 +2,7 @@ manifestVersion: 1
 id: brainchainz2-monero-merchant
 category: finance
 name: Monero Merchant
-version: "2.1.0-umbrel23"
+version: "2.1.0-umbrel24"
 tagline: Accept Monero payments with a self-hosted POS backend
 description: >-
   Monero Merchant is a free, open-source point-of-sale backend for accepting
@@ -34,12 +34,10 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  v2.1.0-umbrel23: Fixed dashboard static asset serving (logo now loads).
-  Fixed sidebar navigation — switching sections now properly replaces instead of
-  stacking. Backend now serves dashboard files from disk instead of always
-  returning index.html. Removed animated CSS blur orbs for GPU performance.
-  Built-in MoneroPay included — no external MoneroPay required.
-  Monero node sync status displayed in dashboard.
+  v2.1.0-umbrel24: Fixed logo display — uses absolute paths so assets load
+  regardless of /dashboard URL. Sidebar navigation properly switches sections.
+  Static asset serving fixed (logo.png, etc. are now served by backend).
+  Built-in MoneroPay included. Monero node sync status shown in dashboard.
 torOnly: false
 submitter: brainchainz
 submission: https://github.com/Monero-Merchant/monero-merchant/pulls
