@@ -2,7 +2,7 @@ manifestVersion: 1
 id: brainchainz2-monero-merchant
 category: finance
 name: Monero Merchant
-version: "2.1.0-umbrel28"
+version: "2.1.0-umbrel29"
 tagline: Accept Monero payments with a self-hosted POS backend
 description: >-
   Monero Merchant is a free, open-source point-of-sale backend for accepting
@@ -34,13 +34,11 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  v2.1.0-umbrel28: Wallet creation, restoration, and seed backup from the admin
-  dashboard. Auto-creates wallet on startup with proper language parameter. New
-  Home tab shows Create/Restore wallet UI when no wallet exists. Settings tab
-  now includes a Seed Backup card with reveal/hide toggle. Backend adds
-  /admin/setup-wallet, /admin/restore-wallet, and /admin/wallet-seed endpoints.
-  All wallet error handling expanded for robustness. Fixes "wallet not available"
-  issue on fresh installs.
+  v2.1.0-umbrel29: Fixes MoneroPay connectivity (auto-corrects stale :8080 port),
+  wallet creation now retries with backoff against wallet-rpc startup race,
+  all setup/restore endpoints return JSON errors for proper dashboard messaging.
+  Previous: wallet creation/restoration UI, seed backup in Settings, auto-create
+  wallet with language parameter, expanded error handling.
 torOnly: false
 submitter: brainchainz
 submission: https://github.com/Monero-Merchant/monero-merchant/pulls

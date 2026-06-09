@@ -33,7 +33,7 @@ WALLET_USER="${APP_MONERO_WALLET_RPC_USERNAME:-}"
 WALLET_PASS="${APP_MONERO_WALLET_RPC_PASSWORD:-}"
 
 # MoneroPay
-MP_URL="${APP_MONEROPAY_BASE_URL:-http://moneropay:8080}"
+MP_URL="${APP_MONEROPAY_BASE_URL:-http://moneropay:5000}"
 MP_CALLBACK="${APP_MONEROPAY_CALLBACK_URL:-http://brainchainz2-monero-merchant_backend_1:8080/callback/}"
 
 # Admin password (blank = no password on first boot; set via Settings or APP_ADMIN_PASSWORD)
