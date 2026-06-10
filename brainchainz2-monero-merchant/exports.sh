@@ -36,7 +36,8 @@ WALLET_PASS="${APP_MONERO_WALLET_RPC_PASSWORD:-}"
 MP_URL="${APP_MONEROPAY_BASE_URL:-http://moneropay:5000}"
 MP_CALLBACK="${APP_MONEROPAY_CALLBACK_URL:-http://brainchainz2-monero-merchant_backend_1:8080/callback/}"
 
-# Admin password (blank = no password on first boot; set via Settings or APP_ADMIN_PASSWORD)
+# Admin password: user-supplied via Umbrel UI takes precedence. If none is set,
+# a strong one is auto-generated on first boot so the dashboard is never blank.
 ADMIN_PASSWORD="${APP_ADMIN_PASSWORD:-}"
 
 # ── Generate secrets file if it doesn't exist ────────────────────────────────
@@ -50,6 +51,7 @@ JWT_REFRESH_SECRET=$(openssl rand -hex 32)
 JWT_MONEROPAY_SECRET=$(openssl rand -hex 32)
 JWT_LWS_TOKEN=$(openssl rand -hex 32)
 WALLET_PASSWORD=$(openssl rand -hex 16)
+GENERATED_ADMIN_PASSWORD=$(openssl rand -hex 12)
 EOF
   chmod 600 "${SECRETS_FILE}"
 fi
@@ -79,8 +81,18 @@ EXISTING_ADMIN_PASSWORD=""
 if [ -f "${ENV_FILE}" ]; then
   EXISTING_ADMIN_PASSWORD=$(grep "^ADMIN_PASSWORD=" "${ENV_FILE}" | cut -d '=' -f2- || true)
 fi
-if [ -n "${EXISTING_ADMIN_PASSWORD}" ]; then
-  ADMIN_PASSWORD="${EXISTING_ADMIN_PASSWORD}"
+# Resolve admin password precedence: UI-supplied > existing .env > generated
+if [ -z "${ADMIN_PASSWORD}" ]; then
+  if [ -n "${EXISTING_ADMIN_PASSWORD}" ]; then
+    ADMIN_PASSWORD="${EXISTING_ADMIN_PASSWORD}"
+  elif [ -n "${GENERATED_ADMIN_PASSWORD}" ]; then
+    ADMIN_PASSWORD="${GENERATED_ADMIN_PASSWORD}"
+    echo "============================================================"
+    echo " Monero Merchant - generated admin password (first boot):"
+    echo "   ${GENERATED_ADMIN_PASSWORD}"
+    echo " Change it anytime in the app Settings. Stored in .secrets"
+    echo "============================================================"
+  fi
 fi
 
 cat > "${ENV_FILE}" <<EOF
