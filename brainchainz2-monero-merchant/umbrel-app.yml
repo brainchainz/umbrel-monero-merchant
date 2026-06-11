@@ -2,7 +2,7 @@ manifestVersion: 1
 id: brainchainz2-monero-merchant
 category: finance
 name: Monero Merchant
-version: "2.1.0-umbrel30"
+version: "2.1.0-umbrel31"
 tagline: Accept Monero payments with a self-hosted POS backend
 description: >-
   Monero Merchant is a free, open-source point-of-sale backend for accepting
@@ -34,12 +34,12 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  v2.1.0-umbrel30: Real embedded admin dashboard (login, live service status,
-  wallet create/restore, seed backup with reveal/copy, vendor management, invite
-  generator, credentials panel). Wallet now auto-creates on first boot with retry
-  against the wallet-rpc startup race. Hardened secrets: strong admin password
-  auto-generated on first boot (never blank), dev .env no longer baked into the
-  image, MoneroPay client degrades gracefully instead of crashing.
+  v2.1.0-umbrel31: Install/update stability fix. Pinned a dedicated Docker subnet
+  (10.99.20.0/24) and gave every service an explicit container_name so updates
+  tear down and recreate cleanly instead of colliding with other apps' networks
+  (the cause of stuck "updating"/"uninstalling" states). MoneroPay callback now
+  targets the named backend container. Same v30 backend image (real embedded
+  dashboard, wallet auto-create, hardened secrets).
 torOnly: false
 submitter: brainchainz
 submission: https://github.com/Monero-Merchant/monero-merchant/pulls

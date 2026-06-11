@@ -1,10 +1,12 @@
 services:
   app_proxy:
+    container_name: brainchainz2_monero_merchant_app_proxy
     environment:
-      APP_HOST: brainchainz2-monero-merchant_backend_1
+      APP_HOST: brainchainz2_monero_merchant_backend
       APP_PORT: 8080
       PROXY_AUTH_ADD: "false"
     image: getumbrel/app-proxy:1.7.0
+    restart: on-failure
     volumes:
       - "${APP_DATA_DIR}:/data"
     networks:
@@ -12,6 +14,7 @@ services:
       - umbrel_main_network
 
   backend:
+    container_name: brainchainz2_monero_merchant_backend
     env_file:
       - ${APP_DATA_DIR}/.env
     environment:
@@ -38,6 +41,7 @@ services:
       - umbrel_main_network
 
   db:
+    container_name: brainchainz2_monero_merchant_db
     environment:
       POSTGRES_DB: moneromerchant
       POSTGRES_USER: moneromerchant
@@ -56,6 +60,7 @@ services:
       - umbrel_main_network
 
   wallet-rpc:
+    container_name: brainchainz2_monero_merchant_wallet_rpc
     env_file:
       - ${APP_DATA_DIR}/.env
     image: sethsimmons/simple-monero-wallet-rpc:latest
@@ -70,6 +75,7 @@ services:
       - umbrel_main_network
 
   moneropay:
+    container_name: brainchainz2_monero_merchant_moneropay
     image: registry.gitlab.com/moneropay/moneropay:v2
     restart: on-failure
     environment:
@@ -87,5 +93,9 @@ services:
 
 networks:
   default:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.99.20.0/24
   umbrel_main_network:
     external: true

@@ -34,7 +34,7 @@ WALLET_PASS="${APP_MONERO_WALLET_RPC_PASSWORD:-}"
 
 # MoneroPay
 MP_URL="${APP_MONEROPAY_BASE_URL:-http://moneropay:5000}"
-MP_CALLBACK="${APP_MONEROPAY_CALLBACK_URL:-http://brainchainz2-monero-merchant_backend_1:8080/callback/}"
+MP_CALLBACK="${APP_MONEROPAY_CALLBACK_URL:-http://brainchainz2_monero_merchant_backend:8080/callback/}"
 
 # Admin password: user-supplied via Umbrel UI takes precedence. If none is set,
 # a strong one is auto-generated on first boot so the dashboard is never blank.
