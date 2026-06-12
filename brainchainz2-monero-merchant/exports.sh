@@ -3,6 +3,9 @@ set -eo pipefail
 
 APP_DIR="${APP_DATA_DIR:-/home/umbrel/umbrel/app-data/brainchainz2-monero-merchant}"
 mkdir -p "${APP_DIR}/postgres" "${APP_DIR}/wallet" "${APP_DIR}/moneropay"
+# wallet-rpc runs as the non-root monero user (UID 1000); make the bind-mounted
+# wallet dir writable by it, otherwise "failed to save file /wallet/*.keys".
+chown -R 1000:1000 "${APP_DIR}/wallet" 2>/dev/null || true
 
 # ── Auto-detect Umbrel Monero node credentials ──────────────────────────────
 UMBREL_MONERO_ENV="/home/umbrel/umbrel/app-data/monero/.env"
@@ -129,8 +132,8 @@ POSTGRES_DB=moneromerchant
 POSTGRES_USER=moneromerchant
 POSTGRES_PASSWORD=${DB_PASSWORD}
 
-WALLET_NAME=merchant_wallet
-WALLET_PASSWORD=${WALLET_PASSWORD}
+WALLET_NAME=wallet
+WALLET_PASSWORD=
 WALLET_AUTO_REFRESH_PERIOD=2
 
 # Wallet-RPC service config

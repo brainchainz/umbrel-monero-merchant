@@ -64,6 +64,7 @@ services:
     env_file:
       - ${APP_DATA_DIR}/.env
     image: sethsimmons/simple-monero-wallet-rpc:latest
+    user: "1000:1000"
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/wallet:/wallet
