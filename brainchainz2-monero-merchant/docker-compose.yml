@@ -25,7 +25,7 @@ services:
       PORT: "8080"
       SECRETS_FILE: ${APP_DATA_DIR}/.secrets
       ADMIN_NAME: admin
-    image: sirjamzalot/monero-merchant-backend:v2.1.0-umbrel30
+    image: sirjamzalot/monero-merchant-backend:v2.1.0-umbrel33
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}:/data
@@ -70,7 +70,7 @@ services:
       - ${APP_DATA_DIR}/wallet:/wallet
     entrypoint: ["/bin/sh", "-c"]
     command:
-      - "exec monero-wallet-rpc --wallet-dir=/wallet --daemon-address=${MONERO_DAEMON_HOST}:${MONERO_DAEMON_PORT} ${MONERO_WALLET_RPC_DAEMON_LOGIN} --rpc-bind-port=18082 --rpc-bind-ip=0.0.0.0 --confirm-external-bind --disable-rpc-login --trusted-daemon --log-level=1"
+      - "exec monero-wallet-rpc --wallet-dir=/wallet --daemon-address=$${MONERO_DAEMON_HOST}:$${MONERO_DAEMON_PORT} $${MONERO_WALLET_RPC_DAEMON_LOGIN} --rpc-bind-port=18082 --rpc-bind-ip=0.0.0.0 --confirm-external-bind --disable-rpc-login --trusted-daemon --log-level=1"
     networks:
       - default
       - umbrel_main_network

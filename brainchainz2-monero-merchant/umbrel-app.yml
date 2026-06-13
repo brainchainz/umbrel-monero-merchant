@@ -2,7 +2,7 @@ manifestVersion: 1
 id: brainchainz2-monero-merchant
 category: finance
 name: Monero Merchant
-version: "2.1.0-umbrel32"
+version: "2.1.0-umbrel33"
 tagline: Accept Monero payments with a self-hosted POS backend
 description: >-
   Monero Merchant is a free, open-source point-of-sale backend for accepting
@@ -34,13 +34,16 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  v2.1.0-umbrel32: Critical fix — wallet now actually creates on first boot.
-  wallet-rpc runs as the non-root monero user (UID 1000) but the bind-mounted
-  wallet dir was root-owned, so it could not write the keys file ("failed to
-  save file /wallet/*.keys"), which crash-looped the backend and left the login
-  screen with no working backend behind it. Now pins wallet-rpc to user
-  1000:1000 and chowns the wallet dir on boot. Also converges the backend and
-  MoneroPay onto a single shared wallet (no more competing wallet files).
+  v2.1.0-umbrel33: Critical fix — wallet-rpc now actually connects to the Monero
+  node. Compose was substituting the daemon host/port/login into the wallet-rpc
+  command at parse time (before the env file loaded), so it launched with an
+  empty "--daemon-address=:" and no login, causing endless "no connection to
+  daemon" and stalling MoneroPay. The daemon variables are now expanded inside
+  the container at runtime. The node host also defaults to the stable DNS name
+  monero_monerod_1 instead of a hardcoded IP that breaks across reboots. Backend
+  image rebuilt so it can perform the node's RPC digest auth (ships curl), fixing
+  the "invalid character '<'" node-info error. MoneroPay base URL and callback
+  defaults corrected to the in-network service and container name.
 torOnly: false
 submitter: brainchainz
 submission: https://github.com/Monero-Merchant/monero-merchant/pulls
@@ -56,14 +59,14 @@ userConfig:
     label: MoneroPay Base URL
     description: URL to your MoneroPay instance
     type: text
-    default: http://host.docker.internal:5000
+    default: http://moneropay:5000
     required: true
 
   - name: MONEROPAY_CALLBACK_URL
     label: MoneroPay Callback URL
     description: URL MoneroPay should POST callbacks to
     type: text
-    default: http://brainchainz2-monero-merchant_backend_1:8080/callback/
+    default: http://brainchainz2_monero_merchant_backend:8080/callback/
     required: true
 
   - name: MONERO_DAEMON_RPC_HOSTNAME

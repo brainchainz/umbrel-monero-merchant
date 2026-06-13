@@ -11,7 +11,7 @@ chown -R 1000:1000 "${APP_DIR}/wallet" 2>/dev/null || true
 UMBREL_MONERO_ENV="/home/umbrel/umbrel/app-data/monero/.env"
 if [[ -f "$UMBREL_MONERO_ENV" ]]; then
   source "$UMBREL_MONERO_ENV"
-  DAEMON_HOST="${APP_MONERO_NODE_IP:-10.21.21.179}"
+  DAEMON_HOST="${APP_MONERO_NODE_IP:-monero_monerod_1}"
   DAEMON_PORT="${APP_MONERO_RPC_PORT:-18081}"
   DAEMON_USER="${APP_MONERO_RPC_USER:-}"
   DAEMON_PASS="${APP_MONERO_RPC_PASS:-}"
