@@ -2,7 +2,7 @@ manifestVersion: 1
 id: brainchainz2-monero-merchant
 category: finance
 name: Monero Merchant
-version: "2.1.0-umbrel33"
+version: "2.1.0-umbrel34"
 tagline: Accept Monero payments with a self-hosted POS backend
 description: >-
   Monero Merchant is a free, open-source point-of-sale backend for accepting
@@ -34,16 +34,15 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  v2.1.0-umbrel33: Critical fix — wallet-rpc now actually connects to the Monero
-  node. Compose was substituting the daemon host/port/login into the wallet-rpc
-  command at parse time (before the env file loaded), so it launched with an
-  empty "--daemon-address=:" and no login, causing endless "no connection to
-  daemon" and stalling MoneroPay. The daemon variables are now expanded inside
-  the container at runtime. The node host also defaults to the stable DNS name
-  monero_monerod_1 instead of a hardcoded IP that breaks across reboots. Backend
-  image rebuilt so it can perform the node's RPC digest auth (ships curl), fixing
-  the "invalid character '<'" node-info error. MoneroPay base URL and callback
-  defaults corrected to the in-network service and container name.
+  v2.1.0-umbrel34: Major refresh. New first-run setup — instead of a hidden
+  auto-generated admin password (which could lock you out), the dashboard now
+  shows a "set your password (or skip)" screen on first boot. Redesigned admin
+  dashboard with more depth and polish. Invites are now created as "valid for X
+  days" instead of picking a date. Adds a vendor self-service portal at /store:
+  vendors sign up with an invite, set their payout address, and create their own
+  POS devices — each new device shows a "Connect your till" card with the exact
+  Instance URL, Vendor ID, username and password to enter into the Android POS
+  app. Multi-arch image (amd64 + arm64).
 torOnly: false
 submitter: brainchainz
 submission: https://github.com/Monero-Merchant/monero-merchant/pulls
