@@ -2,7 +2,7 @@ manifestVersion: 1
 id: brainchainz2-monero-merchant
 category: finance
 name: Monero Merchant
-version: "2.1.0-umbrel34"
+version: "2.1.0-umbrel35"
 tagline: Accept Monero payments with a self-hosted POS backend
 description: >-
   Monero Merchant is a free, open-source point-of-sale backend for accepting
@@ -34,15 +34,15 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  v2.1.0-umbrel34: Major refresh. New first-run setup — instead of a hidden
-  auto-generated admin password (which could lock you out), the dashboard now
-  shows a "set your password (or skip)" screen on first boot. Redesigned admin
-  dashboard with more depth and polish. Invites are now created as "valid for X
-  days" instead of picking a date. Adds a vendor self-service portal at /store:
-  vendors sign up with an invite, set their payout address, and create their own
-  POS devices — each new device shows a "Connect your till" card with the exact
-  Instance URL, Vendor ID, username and password to enter into the Android POS
-  app. Multi-arch image (amd64 + arm64).
+  v2.1.0-umbrel35: UI fixes on top of umbrel34. The admin dashboard now has a
+  Vendor Portal link in the top bar that opens the vendor signup and login page.
+  The vendor portal uses the correct Monero Merchant logo, and the browser tab no
+  longer shows the old XMRpos name. Copying invite codes and connect-your-till
+  details now works over plain http (it previously claimed to copy but did not).
+  Includes everything from umbrel34: first-run set-password-or-skip screen (no
+  more hidden auto-generated password), refreshed admin dashboard, "valid for X
+  days" invites, and the vendor self-service portal at /store with a
+  Connect-your-till card. Multi-arch image (amd64 and arm64).
 torOnly: false
 submitter: brainchainz
 submission: https://github.com/Monero-Merchant/monero-merchant/pulls
