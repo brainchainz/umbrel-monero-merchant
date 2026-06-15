@@ -2,7 +2,7 @@ manifestVersion: 1
 id: brainchainz2-monero-merchant
 category: finance
 name: Monero Merchant
-version: "2.1.0-umbrel35"
+version: "2.1.0-umbrel36"
 tagline: Accept Monero payments with a self-hosted POS backend
 description: >-
   Monero Merchant is a free, open-source point-of-sale backend for accepting
@@ -34,7 +34,11 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  v2.1.0-umbrel35: UI fixes on top of umbrel34. The admin dashboard now has a
+  v2.1.0-umbrel36: Vendor management UX. The Transfer button is now disabled for
+  vendors with no balance (you cannot send what is not there), and both Transfer
+  and Delete now show the real reason from the server instead of a generic
+  "failed". Delete already worked, this just makes the messaging clear.
+  Previous, v2.1.0-umbrel35: UI fixes on top of umbrel34. The admin dashboard now has a
   Vendor Portal link in the top bar that opens the vendor signup and login page.
   The vendor portal uses the correct Monero Merchant logo, and the browser tab no
   longer shows the old XMRpos name. Copying invite codes and connect-your-till
