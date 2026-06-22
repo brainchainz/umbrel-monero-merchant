@@ -2,7 +2,7 @@ manifestVersion: 1
 id: brainchainz2-monero-merchant
 category: finance
 name: Monero Merchant
-version: "2.1.0-umbrel36"
+version: "2.1.0-umbrel37"
 tagline: Accept Monero payments with a self-hosted POS backend
 description: >-
   Monero Merchant is a free, open-source point-of-sale backend for accepting
@@ -34,7 +34,11 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  v2.1.0-umbrel36: Vendor management UX. The Transfer button is now disabled for
+  v2.1.0-umbrel37: Admin transactions fix. The admin dashboard transactions list
+  always showed "awaiting" with a blank vendor name because it read the wrong
+  field names from the API. It now shows the real status (awaiting, pending,
+  confirmed, paid out), the vendor that made each payment, and the date.
+  Previous, v2.1.0-umbrel36: Vendor management UX. The Transfer button is now disabled for
   vendors with no balance (you cannot send what is not there), and both Transfer
   and Delete now show the real reason from the server instead of a generic
   "failed". Delete already worked, this just makes the messaging clear.
